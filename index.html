@@ -42,10 +42,18 @@
       color: white;
       text-decoration: none;
     }
+    #ar-button{
+      position: fixed;
+      left: 25%;
+      right: 25%;
+      bottom: 8%;
+      /* width: 8em; */
+      padding: 10px;
+    }
   </style>
-  <model-viewer alt="AR Poster" src="./poster.glb" ar environment-image="" poster="" shadow-intensity="1" camera-controls touch-action="pan-y" auto-rotate camera-controls ar>
+  <model-viewer alt="AR Poster" src="./poster.glb" ar ar-modes="scene-viewer quick-look" environment-image="" poster="" shadow-intensity="1" camera-controls touch-action="pan-y" auto-rotate camera-controls ar>
     <button slot="ar-button" id="ar-button">
-      View in your space
+      View in AR
     </button>
   </model-viewer>
   <div class="but-div">
@@ -53,10 +61,11 @@
   </div>
 
   <script>
-    window.onload = function(){
-    var button = document.getElementById('ar-button');
-    button.click()
-}
+    window.addEventListener("load", () => {
+      var modelViewer = document.querySelector('model-viewer');
+      console.log("Can activate AR: " + modelViewer.canActivateAR);
+      modelViewer.activateAR();
+    });
   </script>
 
 </body>
