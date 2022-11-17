@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-  <title>Document</title>
+  <title>MAGIC | AR</title>
 </head>
 <body>
   <style>
@@ -16,7 +16,48 @@
       width: 100vw;
       height: 100vh;
     }
+    slot a{
+      width: 10em !important;
+      right: 25% !important;
+      left: 25% !important;
+      background: #1b2d22 !important;
+      color: white !important;
+    }
+    .but-div{
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+      left: 25%;
+      right: 25%;
+    }
+    .but-div button{
+      background: #0a9979;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+    .but-div button a{
+      color: white;
+      text-decoration: none;
+    }
   </style>
-  <model-viewer alt="AR Poster" src="./poster.glb" ar environment-image="" poster="" shadow-intensity="1" camera-controls touch-action="pan-y" auto-rotate camera-controls ar></model-viewer>
+  <model-viewer alt="AR Poster" src="./poster.glb" ar environment-image="" poster="" shadow-intensity="1" camera-controls touch-action="pan-y" auto-rotate camera-controls ar>
+    <button slot="ar-button" id="ar-button">
+      View in your space
+    </button>
+  </model-viewer>
+  <div class="but-div">
+    <button><a href="https://min.lc/magic-2.0" target="_blank">View Website</a></button>
+  </div>
+
+  <script>
+    window.onload = function(){
+    var button = document.getElementById('ar-button');
+    button.click()
+}
+  </script>
+
 </body>
 </html>
